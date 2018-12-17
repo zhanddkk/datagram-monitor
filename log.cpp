@@ -18,7 +18,6 @@ Log::~Log()
 void Log::info(const char *fmt, ...)
 {
     va_list args;
-
     va_start(args, fmt);
     QString *str = new QString;
     str->vsprintf(fmt, args);
@@ -60,8 +59,7 @@ void Log::process_log(int level, const QString *str)
 {
     if (str == nullptr)
         return;
-    if (!str->isEmpty())
-    {
+    if (!str->isEmpty()) {
         bool isLineBreak = true;
         bool isColorChange = true;
 
@@ -82,17 +80,17 @@ void Log::process_log(int level, const QString *str)
         {
         case E_LEVEL_INFO:
             tag = "[   INFO]: ";
-            color.setRgb(0, 255, 0);
+            color.setRgb(0, 180, 0);
             m_is_print_block = false;
             break;
         case E_LEVEL_WARNING:
             tag = "[WARNING]: ";
-            color.setRgb(255, 255, 0);
+            color.setRgb(200, 180, 0);
             m_is_print_block = false;
             break;
         case E_LEVEL_ERROR:
             tag = "[  ERROR]: ";
-            color.setRgb(255, 0, 0);
+            color.setRgb(200, 0, 0);
             m_is_print_block = false;
             break;
         default:

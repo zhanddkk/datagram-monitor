@@ -3,6 +3,15 @@
 #include "settingdialog.h"
 #include "log.h"
 
+#if defined(Q_OS_WIN32)
+#define LOG_FONT_FAMILY     "Consolas"
+#elif defined(Q_OS_MAC)
+#define LOG_FONT_FAMILY     "Monaco"
+#elif define(Q_OS_LINUX)
+#define LOG_FONT_FAMILY     "Courier"
+#else
+#endif
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -10,7 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     m_log = new Log(*ui->text_edit_sys_log, this);
     m_setting_dlg = new SettingDialog(this);
-
+#ifdef LOG_FONT_FAMILY
+    ui->text_edit_sys_log->setFontFamily(LOG_FONT_FAMILY);
+#endif
     connect(ui->action_setting, &QAction::triggered, this, &MainWindow::setting_action_triggered);
     for (uint32_t i = 0; i < 10; i++)
     {
