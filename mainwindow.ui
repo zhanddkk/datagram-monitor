@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_file">
@@ -238,7 +238,14 @@
       <number>1</number>
      </property>
      <item row="0" column="0">
-      <widget class="QTextEdit" name="text_edit_sys_log"/>
+      <widget class="QTextEdit" name="text_edit_sys_log">
+       <property name="font">
+        <font>
+         <family>Monaco</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

@@ -26,13 +26,18 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    settingdialog.cpp \
+    log.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    settingdialog.h \
+    log.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    settingdialog.ui
 
 RC_ICONS = images/logo.ico
 # Default rules for deployment.
