@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    const QIcon logo = QIcon::fromTheme("logo", QIcon(":/images/logo.png"));
+    setWindowIcon(logo);
+
     m_log = new Log(*ui->text_edit_sys_log, this);
     m_setting_dlg = new SettingDialog(this);
 #ifdef LOG_FONT_FAMILY

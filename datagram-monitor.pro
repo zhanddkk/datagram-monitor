@@ -28,19 +28,30 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     settingdialog.cpp \
-    log.cpp
+    log.cpp \
+    brokersetting.cpp \
+    applicationsetting.cpp \
+    settingpage.cpp
 
 HEADERS += \
         mainwindow.h \
     settingdialog.h \
-    log.h
+    log.h \
+    brokersetting.h \
+    applicationsetting.h \
+    settingpage.h
 
 FORMS += \
         mainwindow.ui \
-    settingdialog.ui
+    settingdialog.ui \
+    brokersetting.ui \
+    applicationsetting.ui
 
-RC_ICONS = images/logo.ico
+#RC_ICONS = images/logo.ico
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

@@ -13,7 +13,14 @@
   <property name="windowTitle">
    <string>Setting</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0" columnstretch="0,0,0,0,0" rowminimumheight="0,0,0" columnminimumwidth="0,0,0,0,0">
+   <item row="2" column="3">
+    <widget class="QPushButton" name="push_button_ok">
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
    <item row="2" column="4">
     <widget class="QPushButton" name="push_button_apply">
      <property name="text">
@@ -28,31 +35,21 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
-    <widget class="QPushButton" name="push_button_ok">
-     <property name="text">
-      <string>OK</string>
+   <item row="0" column="1" colspan="4">
+    <widget class="QStackedWidget" name="stacked_widget_setting_pages">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="currentIndex">
+      <number>-1</number>
      </property>
     </widget>
-   </item>
-   <item row="2" column="0">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Preferred</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="0">
-    <widget class="QListWidget" name="list_widget_setting_items"/>
    </item>
    <item row="2" column="1">
     <spacer name="horizontalSpacer_2">
@@ -67,19 +64,29 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="1" colspan="4">
-    <widget class="QStackedWidget" name="stacked_widget_setting_pages">
+   <item row="0" column="0">
+    <widget class="QListWidget" name="list_widget_setting_items">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="currentIndex">
-      <number>0</number>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
      </property>
-     <widget class="QWidget" name="broker_setting_page"/>
-     <widget class="QWidget" name="application_setting_page"/>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="itemAlignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
     </widget>
    </item>
   </layout>
