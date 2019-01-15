@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowIcon(logo);
 
     m_log = new Log(*ui->text_edit_sys_log, this);
-    m_setting_dlg = new SettingDialog(this);
+    m_setting_dlg = new SettingDialog(*m_log, this);
 #ifdef LOG_FONT_FAMILY
     ui->text_edit_sys_log->setFontFamily(LOG_FONT_FAMILY);
 #endif

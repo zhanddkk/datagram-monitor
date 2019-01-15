@@ -1,9 +1,10 @@
 #include <QIcon>
 #include "applicationsetting.h"
 #include "ui_applicationsetting.h"
+#include "log.h"
 
-ApplicationSetting::ApplicationSetting(QSettings &settings, QWidget *parent) :
-    SettingPage(settings, parent),
+ApplicationSetting::ApplicationSetting(QSettings &settings, Log &log, QWidget *parent) :
+    SettingPage(settings, log, parent),
     ui(new Ui::ApplicationSetting)
 {
     ui->setupUi(this);

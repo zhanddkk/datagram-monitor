@@ -24,7 +24,7 @@ public:
         QString password;
         QString ca_path;
     };
-    explicit BrokerSetting(QSettings &settings, QWidget *parent = nullptr);
+    explicit BrokerSetting(QSettings &settings, Log &log, QWidget *parent = nullptr);
     virtual ~BrokerSetting();
 
 public slots:

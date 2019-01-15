@@ -2,9 +2,10 @@
 #include <QFileDialog>
 #include "brokersetting.h"
 #include "ui_brokersetting.h"
+#include "log.h"
 
-BrokerSetting::BrokerSetting(QSettings &settings, QWidget *parent) :
-    SettingPage(settings, parent),
+BrokerSetting::BrokerSetting(QSettings &settings, Log &log, QWidget *parent) :
+    SettingPage(settings, log, parent),
     ui(new Ui::BrokerSetting)
 {
     m_current_ba = nullptr;
@@ -42,7 +43,7 @@ void BrokerSetting::save_settings()
     m_settings->beginGroup("brokers");
     m_settings->remove("");
     m_settings->endGroup();
-
+    m_settings->beginWriteArray("brokers");
     for (QList<struct BrokerAttribute *>::iterator i = m_brokers.begin(); i != m_brokers.end(); i++) {
         BrokerAttribute *ba = *i;
         m_settings->setArrayIndex(_i);
@@ -75,6 +76,7 @@ void BrokerSetting::load_settings()
 {
     int len = m_settings->beginReadArray("brokers");
     for (int i = 0; i < len; i++) {
+        m_settings->setArrayIndex(i);
         struct BrokerAttribute *ba = new struct BrokerAttribute;
         Q_ASSERT(ba != nullptr);
         ba->tag = m_settings->value("tag").toString();

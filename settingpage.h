@@ -4,11 +4,12 @@
 #include <QWidget>
 #include <QSettings>
 
+class Log;
 class SettingPage: public QWidget
 {
     Q_OBJECT
 public:
-    explicit SettingPage(QSettings &settings, QWidget *parent = nullptr);
+    explicit SettingPage(QSettings &settings, Log &log, QWidget *parent = nullptr);
     virtual ~SettingPage();
 
 public slots:
@@ -17,6 +18,7 @@ public slots:
 
 protected:
     QSettings *m_settings;
+    Log *m_log;
 };
 
 #endif // SETTINGPAGE_H

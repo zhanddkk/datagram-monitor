@@ -15,7 +15,7 @@ class ApplicationSetting : public SettingPage
     Q_OBJECT
 
 public:
-    explicit ApplicationSetting(QSettings &settings, QWidget *parent = nullptr);
+    explicit ApplicationSetting(QSettings &settings, Log &log, QWidget *parent = nullptr);
     virtual ~ApplicationSetting();
 
 public slots:
